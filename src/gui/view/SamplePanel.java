@@ -1,10 +1,10 @@
 package gui.view;
 
 import gui.controller.GUIController;
-
 import java.awt.Color;
-
 import javax.swing.*;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class SamplePanel extends JPanel
 {
@@ -41,7 +41,26 @@ public class SamplePanel extends JPanel
 	
 	private void setupListeners()
 	{
-		
+		colorButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent mouseClick)
+			{
+				changeBackgroundColor();
+			}
+		});
 	}
 	
+	private void changeBackgroundColor()
+	{
+		int red = (int) (Math.random() * 256);
+		int green = (int) (Math.random() * 256);
+		int blue = (int) (Math.random() * 256);
+		
+		this.setBackground(new Color(red, green, blue));
+		textLabel.setText("Red is: " + red + " Green is: " + green + " Blue is: " + blue);
+	}
 }
+
+
+
+
